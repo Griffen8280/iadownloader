@@ -1,6 +1,7 @@
 # Import needed modules for script to work
 import argparse
 import os
+import time
 
 # The following will see if internetarchive is installed and prompt if not.
 try:
@@ -30,14 +31,22 @@ else:
     f_path = os.chdir(path)
     f = os.getcwd()
 
-if args.glob_pattern and args.verbose:
-    download (args.url, verbose=True, glob_pattern=args.glob_pattern)
-elif args.glob_pattern:
-    download (args.url, glob_pattern=args.glob_pattern)
-elif args.verbose:
-    download (args.url, verbose=True)
-else:
-    download (args.url)
+def downloader():
+    try:
+        if args.glob_pattern and args.verbose:
+            download (args.url, verbose=True, glob_pattern=args.glob_pattern)
+        elif args.glob_pattern:
+            download (args.url, glob_pattern=args.glob_pattern)
+        elif args.verbose:
+            download (args.url, verbose=True)
+        else:
+            download (args.url)
+    except:
+        print("Ran into a problem downloading, waiting to restart")
+        time.sleep(20)
+        downloader()
+
+downloader()
 
 # We're done here
 exit()

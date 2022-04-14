@@ -22,6 +22,8 @@ all_args.add_argument('-v', '--verbose', type=str, required=False, help="Verbose
 args = all_args.parse_args()
 
 # Do the stuff
+
+# Check to see if a path was provided and set the script to use it if so.
 if args.output:
     path = args.output
     f_path = os.chdir(path)
@@ -31,6 +33,7 @@ else:
     f_path = os.chdir(path)
     f = os.getcwd()
 
+# Create the downloader function and have it select the right method based on provided args
 def downloader():
     try:
         if args.glob_pattern and args.verbose:
@@ -46,6 +49,7 @@ def downloader():
         time.sleep(20)
         downloader()
 
+# Run it        
 downloader()
 
 # We're done here

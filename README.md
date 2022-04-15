@@ -12,3 +12,13 @@ optional arguments:
   -g, --glob_pattern    Glob Pattern if you only want certian files (ie. *7z, *mkv, *png)
   -v, --verbose         Verbose, whether you want to see the output
 ```
+
+## Example
+```
+$ python3 iadownloader.py -u YOURURLHERE -o ~/Downloads -g *mkv -v
+```
+In this example the python interpreter will execute the iadownloader.py script with the following options:
+- URL where you want it to download to (Keep in mind that it will create a folder named the same as your URL to download into)
+- Output folder to download to ie. ~/Downloads or /home/$USERNAME/Downloads
+- Glob Pattern, which in this case would be just the mkv files in the archive your downloading
+- Verbose option meaning I want to watch it work and see the progress of each download

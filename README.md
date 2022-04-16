@@ -3,7 +3,7 @@ Simple downloader that accepts a few arguments on the command line and does it's
 
 ## Output of Help
 ```
-usage: iadownloader.py [-h] -u URL [-o OUTPUT] [-g GLOB_PATTERN] [-v VERBOSE]
+usage: iadownloader.py [-h] [-u URL] [-o OUTPUT] [-g GLOB_PATTERN] [-v VERBOSE]
 
 optional arguments:
   -h, --help            show this help message and exit
